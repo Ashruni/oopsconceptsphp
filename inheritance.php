@@ -368,5 +368,96 @@ $obj_g=new Vehicle();
 $obj_g->display();
 
 ?>
+<?php 
+class Animal{
+    protected $animalName;
+    protected $animalOrigin;
+    public function __construct(){
+        echo "\n THIS IS AN ANIMAL class method \n";
+    } 
 
 
+}
+class Dog extends Animal{
+    protected $dogName;
+    protected $dogOrigin;
+    public function __construct(){
+        parent ::__construct();
+        echo " this is a dog class method \n ";
+    }
+}
+class Cat extends Animal{
+    protected $catName;
+    protected $catOrigin;
+    public function __construct(){
+        parent ::__construct();
+        echo "\n this is a cat class method";
+    }
+    public function catInfo(){
+        echo "\n I am a cat";
+    }
+}
+
+$obj0=new Dog();
+
+$objf1= new Cat();
+$objf1->catInfo();
+
+
+?>
+<!-- 17 -->
+<?php 
+class Humanss{
+    protected $humanFeature;
+    protected $humanNature;
+    public function __construct(){
+        
+        echo "this is a public parent __construct method  \n";
+
+    }
+}
+class Female extends Humanss{
+    protected $femaleFeature;
+    public function __construct(){
+        parent::__construct();
+        echo "this is a female class method ";
+
+    }
+}
+class Male extends Humanss{
+    protected $maleFeature;
+    public function __construct(){
+        parent::__construct();
+        echo "this is a male class method";
+
+    } 
+
+}
+$objh=new Male();
+$objh1=new Female();
+
+
+
+?>
+<!-- 18 -->
+<?php 
+class Humansss {
+    protected $name;
+    protected $place;
+    public function __construct($nm,$pl){
+        $this->name=$nm;
+        $this->place=$pl;
+        echo "hi i am  {$this->name} and his place is {$this->place} ";
+    }
+}
+class person extends Humansss {
+    protected $feature_person;
+    public function personInfo(){
+        echo "\n this is person class ";
+
+    }
+}
+
+$objg=new Person("Hema","Himalayas");
+$objg->personInfo();
+?>
