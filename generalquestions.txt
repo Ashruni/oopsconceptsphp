@@ -1,0 +1,6 @@
+<!-- Write a PHP class 'Rectangle' that has properties for length and width. 
+Implement methods to calculate the rectangle's area and perimeter -->
+
+Write a PHP a class hierarchy for a library system, including
+ classes like 'LibraryItem', 'Book', 'DVD', etc.
+ Implement appropriate properties and methods for each class.
