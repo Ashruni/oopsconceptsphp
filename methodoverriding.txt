@@ -1,0 +1,45 @@
+1.IN MO.. BOTH PARENT AND CHILD CLASSES SHOULD HAVE FUNCTION NAME AND NUMBER OF ARGUMENTS
+
+2.THE PURPOSE OF OVERI.. IS TO CHANGE THE BEHAVIOR OF PARENT CLASS METHOD 
+
+3.THE 2 METHODS WITH THE SAME NAME AND SAME PARAMETERS IS CALLED METHOD OVERRIDING 
+
+4.INHERITED METHODS CAN BE OVERRIDDEN BY REDEFINING THE METHODS IN CHILD CLASS 
+
+5.IF WE DONOT NEED ANYONE OF THE PROPERTIES FROM CHILD OR PARENT CLASS WE CAN DO WITH THE HELP OF OVERRIDING
+( allows a subclass to provide a different implementation of a method that is already 
+provided by its parent class)
+
+6.Method overriding is a concept rooted in inheritance
+
+7.This allows you to customize the behavior of inherited methods to suit the specific
+ needs of the subclass.Method overriding is particularly useful for creating a
+ hierarchy of related classes while maintaining a consistent interface 
+   
+BEHAVIOR:
+   eg: You can customize the behavior of inherited methods to better
+    suit the needs of a subclass. For example, you might have a Vehicle class with a 
+    start() method, and subclasses like Car and Motorcycle can override this method 
+    to start their engines differently
+
+Implement Polymorphism:
+ Method overriding is a key component of polymorphism in object-oriented programming. 
+ It allows you to treat objects of different subclasses uniformly when they share a common 
+ interface (method signature). This promotes code reusability and flexibility
+  (method signatures include only method name and parameter lists but not method return types)
+
+
+
+best practices:
+
+1.Respect Method Signatures: Ensure that the overriding method in the child class has the 
+same method name and parameter list as the method in the parent class. This is essential 
+for the overriding mechanism to work correctly.
+
+2.Use the parent Keyword: Inside the overriding method, you can use the parent keyword to 
+call the overridden method in the parent class if needed. This allows you to extend the
+ behavior of the parent method rather than completely replacing it.
+ 
+3.Document Your Code: Clearly document the purpose of overridden methods and any deviations 
+from the parent class’s behavior. This helps other developers understand your code and use 
+it effectively.

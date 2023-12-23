@@ -1,5 +1,5 @@
 
-
+<!-- 33 -->
 <?php 
 class Rectangle{
     public $length;
@@ -29,8 +29,5 @@ $new_obj->rectangleArea();
 $new_obj->perimeter();
 
 ?>
-<!-- // $obj_a=new heirarchy();
-// echo $obj_a->constructab("Neena","Chronicles of Narnia");
-// echo $obj_a->libraryItem();
+<!-- 34 + 20 = 54 -->
 
-gi

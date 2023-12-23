@@ -31,4 +31,4 @@ class Animal{
 $obj_new1= new Animal("Tiger","Carnivorous");
 
 ?>
-
+<!--  -->
