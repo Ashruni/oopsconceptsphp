@@ -1,0 +1,3 @@
+But we can easily access the private variables of a class by defining public
+ functions in the class. We can create separate functions to set value to private
+  variables and to get their values too. These functions are called Getters and Setters.

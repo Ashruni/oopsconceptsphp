@@ -43,3 +43,14 @@ call the overridden method in the parent class if needed. This allows you to ext
 3.Document Your Code: Clearly document the purpose of overridden methods and any deviations 
 from the parent class’s behavior. This helps other developers understand your code and use 
 it effectively.
+
+
+As we know the protected method is accessible from a base class and the derived class it
+can be made public in the subclass but not private as private is only accessible in the
+parent class.
+1. protected parent function as it is accessible in derived class can be made as public 
+2. But private parent function as it is not accessible outside the parent class 
+
+
+ Also if a class method has an access specifier as public then the overriding
+method in the derived class cannot be declared as private and protected

@@ -54,4 +54,122 @@ $new_obj3=new BC("Strawberry","America","Red");
 $new_obj3->Fruits();
 
 ?>
-<!-- method overriding with access modifiers -->
+<!-- method overriding with access modifiers 56 -->
+<?php 
+class ParentA{
+    public function features(){
+        echo "this is a parent class \n";
+    }
+
+
+}
+class ChildA extends ParentA{
+    public function features(){
+        echo "this is a child class";
+
+    }
+
+}
+$new1=new ParentA();
+$new1->features();
+$new2=new ChildA();
+$new2->features();
+
+
+?>
+<!-- 57  -->
+<!-- public accessibility cannot be overridden as  private cannot reduce the visibility -->
+<?php 
+class Kingdom{
+    public function PlantKingdom(){
+        echo "this is the plant kingdom \n ";
+    }
+    public function AnimalKingdom(){
+        echo "this is the animal kingdom \n";
+    }
+}
+class Human extends Kingdom{
+    public function AnimalKingdom(){
+        echo "this is a human species from animal kingdom \n";
+    }
+    
+}
+class Algae extends Kingdom{
+    // protected function PlantKingdom(){
+// Fatal error: Access level to Algae::PlantKingdom() must be public (as in class Kingdom)
+//  in C:\xamppp\htdocs\oopsphp\method-overriding.php on line 98
+    public function PlantKingdom(){
+        echo "this is a plant from plant kingdom \n";
+    } 
+}
+$ne= new Kingdom();
+$ne->AnimalKingdom();
+$ne->PlantKingdom();
+$ne1=new Human();
+$ne1->AnimalKingdom();
+$ne2= new Algae();
+$ne2->PlantKingdom();
+
+?>
+<!--parent private cannot be accessed to anwhere ot class 58 -->
+<?php 
+class Privacy{
+    // private function family(){
+    public function family(){
+        echo " this family is private";
+
+    }
+   
+}
+class Friends extends Privacy{
+    public function family(){
+        echo "This is a friend";
+
+    } 
+}
+$ne3=new Privacy();
+
+
+
+
+// $ne3->family();
+$ne4=new Privacy();
+$ne4->family();
+$ne5=new Friends();
+$ne5->family();
+
+
+// Fatal error: Uncaught Error: Call to private method Privacy::family() 
+// from global scope in C:\xamppp\htdocs\oopsphp\method-overriding.php:128
+
+
+?>
+
+<!-- 58 -->
+<?php 
+class Teacher{
+    protected function sub(){
+        echo "this is a teacher \n";
+    }
+    public function suba(){
+        echo  $this->sub();
+
+    }
+
+}
+class Student extends Teacher{
+    public function sub(){{
+        echo "this is a Student \n";
+    }
+}
+}
+$new_y=new Teacher();
+// Fatal error: Uncaught Error: Call to protected method Teacher::sub()
+//  from global scope in C:\xamppp\htdocs\oopsphp\method-overriding.php:164
+$new_y->suba();
+$new_y1=new Student();
+$new_y1->sub();
+
+
+
+?>
