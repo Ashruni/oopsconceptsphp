@@ -1,0 +1,9 @@
+PHP offers mainly three types of inheritance based on their functionality. 
+These three types are as follows:
+
+Single Inheritance: Single inheritance is the most basic or fundamental type of inheritance offered by PHP. 
+There is only one base class and one sub/derived class in a single inheritance and the subclass is directly inherited from the base class.
+Hierarchical Inheritance: As the name suggests, the hierarchical inheritance adopts a tree-like structure, 
+where multiple derived classes are inherited from the base class.
+Multilevel Inheritance: Multilevel inheritance is the third type of inheritance supported in PHP.
+ It occurs at different levels. Here, one base class is inherited by a derived class, then that derived class is inherited by other derived classes, and so on.

@@ -21,7 +21,7 @@ class scooter extends Vehicle{
 }
 class bike extends Vehicle{
     public function service(){
-        echo "service need to be initiattetd after ";
+        echo "service need to be initiated after ";
     }
 } 
 
