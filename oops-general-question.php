@@ -740,15 +740,166 @@ $new_object_creB->child1();
 <!-- create car parent class abstract method mileage and wheel ,child class Tesla and suzuki -->
 <?php 
 abstract class CarParent{
-    abstract public function mileage(){
+    abstract public function mileage();
+    abstract public function wheel();
+}
+class Tesla extends CarParent{
+    public function mileage(){
+        echo "Great mileage";
+    }
+   public function wheel(){
+        echo "Great wheel ";
+    }
+}
+class Suzuki extends CarParent{
+    public function mileage(){
+        echo "Great mileage";
+    }
+    public function wheel(){
+        echo "Great wheel ";
+    }
+}
+$carObject=new Tesla();
+$carObject-> mileage();
+$carObject-> wheel();
+
+// abstract class 
+// ?>
+<!-- 95 - 100 -->
+
+<!-- 100 -->
+<!-- # create a class laptop using construct (processor ,color,os,memory) 2 lap obj -->
+<?php 
+class Laptop{
+    public $process ;
+    public $color;
+    public $os;
+    public $memory;
+    public function __construct($process,$color,$os,$memory){
+        $this->process = $process;
+        $this->color=$color;
+        $this->os=$os;
+        $this->memory=$memory;
+    }
+    public function laptops(){
+        echo "Laptop has ".$this->process . " and is ".$this->color." in color with " . $this->os. " and ".$this->memory ;
+    }
+}
+$laptops=new Laptop("intel","rose quartz","windows","250");
+$laptops->laptops();
+
+?>
+<!-- 101 -->
+<!-- Create three classes: Vehicle, Car, and SportsCar. 
+Demonstrate multilevel inheritance where SportsCar inherits 
+from Car, and Car inherits from Vehicle.
+ Each class should have a method that reflects its purpose -->
+<?php 
+class Vehicles{
+    public function features()
+    {
+        echo "There are wide range of vehicles  \n";
+    }
+}
+class Car extends Vehicle {
+    // extends Vehicles
+    public function features(){
+        echo "Basic use of Vehicle is for transportation! \n";
 
     }
-    abstract public function wheel(){
 
+   
+
+} 
+class SportsCar extends Car{
+    public function features()
+    {
+        echo "Sports cars are built different \n";
+    }
+}
+$new_ObjectA=new Vehicles();
+$new_ObjectA->features();
+$new_ObjectB=new Car();
+$new_ObjectB->features();
+$new_ObjectC=new SportsCar();
+$new_ObjectC->features();
+?>
+<!-- Consider the Shape hierarchy with Circle and ColoredCircle. 
+If the radius of a circle is 5 units, calculate the area of the circle 
+using the calculateArea() method  102 -->
+<?php
+
+class Shapes{
+    public $radius;
+    public function __construct($radius){
+        $this->radius = $radius;
+    }
+    function shape(){
+        echo "closed surfaces";
+    }
+} 
+class CirclesABC extends Shapes {
+    public function circle(){
+        echo "its a circle";
+    } 
+    public function calculateArea(){
+        echo "Area of a circle : " . 2 * 3.14 * $this->radius;  
+    }
+}
+class  ColoredCircle extends CirclesABC {
+    public function coloredCircle(){
+        echo "its a colored Circle";
     } 
 }
-abstract class 
+$new_ObjectAB= new CirclesABC(34);
+$new_ObjectAB->calculateArea();
+
 ?>
+<!-- Employee Salary Calculation: 103
+
+In the Person, Employee, and Manager hierarchy, assume that an Employee has a base 
+salary of $50,000 and a Manager has an additional bonus of $10,000.
+ Calculate and display the total salary of a Manager using the work() method. -->
+ <?php 
+ class Person{
+
+ }
+ class Employee{
+    public $salary= 50000 ;
+
+
+
+ }
+ class Manager{
+    public $managerSalary;
+    public function __construct(){
+        $this->managerSalary = 60000 ;
+    }  
+
+
+ }
+ class Display extends Manager{
+    public  $totalSalary;
+    public function work(){
+        echo "total salary of the manager is ".$this->managerSalary ;
+    }
+
+ }
+ $new_Object_ABC=new Display();
+ $new_Object_ABC->work();
+
+
+ ?>
+ <!-- Living Being Information:
+
+Given the LivingBeing, Animal, and Mammal classes, instantiate a Mammal
+object with the species set to "Human," the sound set to "Talks," and the
+fur color set to "Brown." Display the information using the appropriate methods -->
+
+
+
+
+
 
 
 
