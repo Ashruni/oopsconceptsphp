@@ -55,3 +55,8 @@ Create an abstract class "Animals" with two abstract methods "cats" and "dogs".
 Now create a class "Cats" with a method "cats" which prints "Cats meow" and a class 
 "Dogs" with a method "dogs" which prints "Dogs bark", both inheriting the class "Animals".
 Now create an object for each of the subclasses and call their respective methods
+
+
+In a function with a static lifetime, its arguments are static variables and can be accessed 
+from outside the function just like any other static variable. If you tried to access that argument
+before the function was ever called, that would create an illegal reference.
