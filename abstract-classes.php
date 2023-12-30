@@ -358,3 +358,42 @@ $obj_new1->dogs();
 
 ?>
 
+<!133  -->
+ <!-- Abstract Class and Inheritance:
+Create an abstract class Shape with an abstract method calculateArea(). 
+Extend this class with two child classes Rectangle and Circle that implement the 
+abstract method. Instantiate objects of both classes and display their areas. -->
+<?php 
+abstract class CircleArea{
+    abstract public function calculateArea($radius);
+}
+class Circle extends CircleArea{
+    public function calculateArea($radius){
+        echo "Area ". 3.14*$radius**2 ;
+
+    }
+}
+$newObjectCircle = new Circle();
+$newObjectCircle->calculateArea(20);
+?>
+<!-- 134 Protected Property:
+Design a class with a protected property. Extend this class in a child class and attempt to
+ access the protected property directly. Explain the result. -->
+ <?php 
+ class ProtectedProperty{
+    protected $variable= "Salary";
+    protected function protectedProperty(){
+        echo "This is protected";
+    }
+ }
+ class ChildClassProtected extends ProtectedProperty{
+    public $variable ="My SALARY";
+    public function protectedProperty(){
+        echo "This is child class extending protected parents ";
+    }
+ }
+ $newObjectCreation = new ChildClassProtected();
+ $newObjectCreation ->protectedProperty();
+
+
+ ?>

@@ -461,3 +461,145 @@ class person extends Humansss {
 $objg=new Person("Hema","Himalayas");
 $objg->personInfo();
 ?>
+ <!-- 127 -->
+<!-- Inheritance and Calculation:
+Create a parent class with a constructor that initializes a numeric value. 
+Extend this class with a child class that multiplies the inherited 
+value by a factor. Display the final result. -->
+<?php 
+ class ParentClass{
+  public $numericValue;
+  public function __construct($numericValue){
+     $this->numericValue = $numericValue;
+  }
+ }
+ class ChildClass extends ParentClass{
+    public function childFunction(){
+        echo "ANSWER :" . $this->numericValue/2;
+    }
+ }
+
+ $newChildObject1= new ChildClass(100);
+ $newChildObject1->childFunction();
+ ?>
+ <!-- 128 -->
+<!-- Accessing Parent Properties:
+Create a parent class Employee with a protected property $salary.
+ Extend this class with a child class Manager that has an additional property $bonus.
+ Calculate and display the total compensation (salary + bonus) for a Manager object. -->
+<?php 
+class EmployeeClass{
+    protected $salary;
+    public function __construct($salary){
+        $this->salary = $salary;
+    }
+
+}
+class Manager extends EmployeeClass{
+    public $bonus;
+    public function displaySalary($bonus){
+        echo "Total compensation of the manager : ". $this->salary + $bonus ;
+    }
+}
+$managerObject= new Manager(20000);
+$managerObject->displaySalary(10000);
+
+?>
+<!-- 129 -->
+<!-- Multiple Inheritance:
+Implement two classes, A and B. Create a third class C that extends both A and B. 
+Instantiate an object of class C and display properties from both parent classes. -->
+<?php 
+class AClass{
+    public function features(){
+        echo "These are the features of A \n ";
+    }
+}
+class BClass extends AClass{
+    public function features(){
+        echo "These are the features of B \n ";
+    }
+}
+
+class CClass extends BClass{
+    public function features(){
+        echo "These are the features of C \n";
+    }
+}
+$newClass=new  AClass();
+$newClass->features();
+$newClass1= new BClass();
+$newClass1->features();
+$newClass2= new CClass();
+$newClass2->features();
+?>
+<!-- 130 -->
+<!-- Access Modifiers in Inheritance:
+Design a class Product with private property $price. 
+Extend this class with a child class DiscountedProduct that applies a discount to the price. 
+Ensure that the discount is applied correctly and display the final price. -->
+<?php 
+class Product{
+    public $prices1;
+    // private   $prices1; causing error 
+    public function __construct($prices1){
+        $this->prices1 = $prices1 ;
+    }
+
+}
+class DiscountedProduct extends Product{
+    public $discountRate;
+    public function discountPrices(){
+        $discountRate = ($this->prices1 )* 20 /100 ;
+        echo "final price ". $this->prices1-$discountRate ;
+    }
+}
+$newDiscount = new DiscountedProduct(400);
+$newDiscount->discountPrices();
+?>
+<!-- 131 -->
+<!-- 
+Inheriting Static Properties:
+Implement a class MathOperations with a static property $pi. Extend this class with a 
+child class Circle that uses the inherited static property to 
+calculate the circumference of a circle. Display the result. -->
+<?php 
+class MathOperations {
+    public static $pi = 3.14;
+
+}
+class Circles extends MathOperations{
+    
+    public function calculateCircumferance($radius){
+        parent::$pi;
+        echo "Circumference Of A Circle : ". 2 *parent::$pi*$radius;
+    }
+
+}
+$newCircle= new Circles();
+$newCircle->calculateCircumferance(45);
+
+?>
+<!-- 132 -->
+<!-- Parent Method Call:
+Define a class Person with a method introduce().
+ Extend this class with a child class Employee that overrides the introduce() 
+ method to include job information.
+ Call both the parent and child methods for an Employee object. -->
+ <?php 
+ class PersonsClass{
+    public function introduce(){
+        echo "This is a person \n ";
+    }
+ }
+ class EmployeeClasses extends PersonsClass{
+    public function introduce(){
+        echo "this employee has joined on 3/04/2000 ";
+    }
+ }
+ $newPersonEmployee= new PersonsClass();
+ $newPersonEmployee->introduce();
+ $newPersonEmployee1= new EmployeeClasses();
+ $newPersonEmployee1->introduce();
+ ?>
+ 

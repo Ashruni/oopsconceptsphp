@@ -440,9 +440,89 @@ class Student{
 }
 $newStudentScore= new Student("Rithika Niana :",90,89,90);
 $newStudentScore->averageScore();
-
-
 ?>
+<!-- 119 -->
+<!-- Develop a PHP class named Calculator with a constructor that initializes a result variable. 
+Implement methods for addition, subtraction, multiplication, and division, each taking a parameter 
+and updating the result accordingly. Provide a method to get the current result -->
+<?php 
+class Calculator{
+    public $variable1;
+    public $variable2;
+    
+    public function __construct($x,$y){
+        $this->variable1 = $x;
+        $this->variable2 = $y;
+
+     }
+     public function addition(){
+        $sum = $this->variable1 + $this->variable2;
+        echo " Addition result :" . $sum ."\n"; 
+    }
+    public function subtraction(){
+        $subtract =$this->variable1 - $this->variable2;
+        
+        echo " subtraction result :" . $subtract ."\n";
+        
+    }
+    public function division(){
+        $div = $this->variable1 / $this->variable2;
+    
+        echo " division result :" . $div ."\n" ;
+    }
+}
+$newCalculator = new Calculator(21,7);
+$newCalculator->addition();
+$newCalculator->subtraction();
+$newCalculator->division();
+?>
+<!-- 120 -->
+<!-- Create a PHP class named Circle with a constructor that takes the radius as a parameter.
+ Implement methods to calculate and return the area and circumference of the circle. -->
+ <?php 
+ class Circle{
+    public $radius;
+    public function __construct($radius){
+        $this->radius = $radius;
+    } 
+    public function calculateArea(){
+        $area = 3.14 * ($this->radius)**2 ;
+        echo "Area of Circle : ".$area ."\n";
+    }
+    public function calculateCircumference(){
+        $circumference = 2 * 3.14 * ($this->radius) ;
+        echo "Circumference of Circle : ".$circumference ."\n";
+    } 
+ }
+ $newCircle = new Circle(30);
+ $newCircle->calculateArea();
+ $newCircle->calculateCircumference();
+ ?>
+ <!-- 121 -->
+ <!-- Define a PHP class called Person with a constructor that takes the person's name and
+  age as parameters.Implement a method to determine if the person is 
+  a minor (below 18 years old) or an adult -->
+  <?php 
+  class PersonClass{
+    public $name;
+    public $age;
+    public function __construct($name,$age){
+        $this->name = $name;
+        $this->age =$age;
+    }
+    public function ageCalculation(){
+        if($this->age > 18){
+            echo $this->name ." aged ".$this->age ." is an adult  ";
+        }
+        else{
+            echo $this->name ." aged ".$this->age ."is a minor " ;
+        }
+    }
+  }
+  $newAgeCalculations = new PersonClass("Rithika",23);
+  $newAgeCalculations->ageCalculation();
+?>
+
 
 
 
