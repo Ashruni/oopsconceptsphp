@@ -602,4 +602,206 @@ Define a class Person with a method introduce().
  $newPersonEmployee1= new EmployeeClasses();
  $newPersonEmployee1->introduce();
  ?>
- 
+ <!-- 139 -->
+ <!-- 
+Extend the Dog class to create a class GermanShepherd and override the makeSound() 
+method to make a specific bark sound.
+Extend the GermanShepherd class to create a class WorkingGermanShepherd and override 
+the makeSound() method again with a modified sound.
+Create an instance of WorkingGermanShepherd and call its makeSound() method.
+Accessing Parent Method: -->
+
+<?php 
+class Doggies{
+    public function makeSound(){
+        echo "dogs bark specifically ";
+    } 
+}
+class GermanShepherd extends Doggies{
+    public function makeSound(){
+        echo "their voices are louder ";
+    }
+} 
+class WorkingGermanShepherd extends GermanShepherd{
+    public function makeSound(){
+        echo "their voices are louder  and we can hear the echo  ";
+    }
+}
+$newObjectDog = new WorkingGermanShepherd();
+$newObjectDog-> makeSound();
+
+?>
+<!-- 140 1 -->
+<!-- Add a method run() to the Dog class.
+Override the run() method in the GermanShepherd class to add additional functionality.
+Call both the parent and child class methods from an instance of GermanShepherd. -->
+ <?php 
+ class PersonsClasses{
+    public function introduce(){
+        echo "This is a person \n ";
+    }
+ }
+ class EmployeeClasses1 extends PersonsClasses{
+    public function introduce(){
+        echo "this employee has joined on 3/04/2000 ";
+    }
+ }
+ $newPersonEmployee= new PersonsClasses();
+ $newPersonEmployee->introduce();
+ $newPersonEmployee1= new EmployeeClasses1();
+ $newPersonEmployee1->introduce();
+ ?>
+ <!-- 139 -->
+ <!-- 
+Extend the Dog class to create a class GermanShepherd and override the makeSound() 
+method to make a specific bark sound.
+Extend the GermanShepherd class to create a class WorkingGermanShepherd and override 
+the makeSound() method again with a modified sound.
+Create an instance of WorkingGermanShepherd and call its makeSound() method.
+Accessing Parent Method: -->
+
+<?php 
+class DogClasses{
+    public function makeSound(){
+        echo "dogs bark specifically ";
+    } 
+}
+class GermanShepherd1 extends DogClasses{
+    public function makeSound(){
+        echo "their voices are louder ";
+    }
+} 
+class WorkingGermanShepherd1 extends GermanShepherd1{
+    public function makeSound(){
+        echo "their voices are louder  and we can hear the echo  ";
+    }
+}
+$newObjectDog = new WorkingGermanShepherd1();
+$newObjectDog-> makeSound();
+?>
+// 140
+// Add a method run() to the Dog class.
+// Override the run() method in the GermanShepherd class to add additional functionality.
+// Call both the parent and child class methods from an instance of GermanShepherd.
+<?php 
+class DogClass{
+    public function makeSound(){
+        echo "dogs bark specifically :";
+    } 
+    public function run(){
+        echo "they run very fast :";
+    }
+}
+class GermanShepherd2 extends DogClass{
+    public function makeSound(){
+        echo "their voices are louder \n";
+    }
+    public function run(){
+        echo "they run very fast and they are very active \n";
+    }
+} 
+class WorkingGermanShepherds extends GermanShepherd2{
+    public function makeSound(){
+        echo "their voices are louder  and we can hear the echo  \n ";
+    }
+}
+$newObjectDog = new WorkingGermanShepherds();
+$newObjectDog-> makeSound();
+$newObjectDog->run();
+?>
+// 141
+// 
+// In the WorkingGermanShepherd class, use the parent::makeSound() to call the makeSound()
+//  method from the GermanShepherd class.
+// Display the result.
+
+<?php 
+class DogClass1{
+    public static function makeSound(){
+        echo "dogs bark specifically :";
+    } 
+    // public function run(){
+    //     echo "they run very fast :";
+    // }
+}
+class GermanShepherd3 extends DogClass1{
+    public function makeSounds(){
+        echo parent::makeSound();
+        echo "their voices are louder \n";
+    }
+    // public function run(){
+    //     echo "they run very fast and they are very active \n";
+    // }
+} 
+class WorkingGermanShepherds1 extends GermanShepherd3{
+    public function makeSounds1(){
+        echo parent::makeSounds();
+        echo "their voices are louder  and we can hear the echo  \n ";
+    }
+}
+
+// $newObjectDog1 = new GermanShepherd3();
+// $newObjectDog1 ->makeSounds();
+// $newObjectDog1 ->run();
+
+$newObjectDog = new WorkingGermanShepherds1();
+$newObjectDog-> makeSounds1();
+?>
+// $newObjectDog->run();
+// 142
+// Final Keyword:
+// Mark the makeSound() method in the Dog class as final.
+// Attempt to override it in the GermanShepherd class.
+<?php 
+class DogClass5{
+    // final public  function makeSound(){
+        // Fatal error: Cannot override final method DogClass5::makeSound()
+       public function makeSound(){
+        echo "dogs bark specifically :";
+    } 
+}
+class GermanShepherd4 extends DogClass5{
+    public function makeSound(){
+        echo "their voices are louder \n";
+    }
+}
+$newObjectDog1 = new GermanShepherd4();
+$newObjectDog1 ->makeSound();
+
+
+?>
+<!-- 144 -->
+<!-- Create an interface Speakable with a method speak().
+Implement the Speakable interface in the Person class.
+Extend the Person class to create a class Student and override the speak() method. -->
+<?php 
+interface Speakable{
+    public function speak();
+}
+class ClassPersonSpeakable implements Speakable{
+    public function speak(){
+        echo "this is interface :";
+    } 
+    
+}
+class StudentSpeakable extends ClassPersonSpeakable{
+    public function speak(){
+        echo "this is overridden speak() ";
+    }
+}
+$newSpeak = new StudentSpeakable();
+$newSpeak->speak();
+?>
+<!-- 152(from encapsulation) -->
+<!-- Multiple Inheritance:
+Implement a scenario with multiple inheritance using interfaces.
+ Create an interface Movable with a method move(), and another interface Resizable 
+ with a method resize(). Create a class Shape that implements both interfaces.
+  Write a class ResizableCircle that extends Shape and provides a specific 
+  implementation for resizing. -->
+  
+
+
+
+
+

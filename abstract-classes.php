@@ -376,10 +376,55 @@ class Circle extends CircleArea{
 $newObjectCircle = new Circle();
 $newObjectCircle->calculateArea(20);
 ?>
-<!-- 134 Protected Property:
-Design a class with a protected property. Extend this class in a child class and attempt to
- access the protected property directly. Explain the result. -->
- <?php 
+<!-- SAME QUESTION -->
+<!-- !-- Abstract Class and Inheritance:
+Create an abstract class Shape with an abstract method calculateArea(). 
+Extend this class with two child classes Rectangle and Circle that implement the 
+abstract method. Instantiate objects of both classes and display their areas. --> 
+<?php 
+ abstract class ShapeClass {
+   
+    abstract public function calculateArea1();
+    // abstract public function calculateArea2($radius);
+
+
+}
+class RectangleClass extends ShapeClass{
+    public $length;
+    public $breadth;
+
+    public function __construct($length,$breadth){
+        $this->length = $length;
+        $this->breadth = $breadth;
+    }
+    public function calculateArea1(){
+        echo "Area of a Rectangle : ". $this->length*$this->breadth;
+    }
+}
+class CircleClass extends RectangleClass{
+    public function __construct($radius){
+        $this->radius = $radius;
+    }
+    public function calculateArea1(){
+        // $this->radius=$radius;
+        echo "Area of a Circle : ". 2*3.14* $this->radius ;
+
+    }
+}
+$newAbstractClass = new RectangleClass(10,20);
+$newAbstractClass->calculateArea1();
+$newAbstractClass1 = new CircleClass(20);
+$newAbstractClass1->calculateArea1();
+
+
+?>
+
+__________
+
+<!-- //  134 Protected Property:
+// Design a class with a protected property. Extend this class in a child class and attempt to
+//  access the protected property directly. Explain the result. -->
+<?php 
  class ProtectedProperty{
     protected $variable= "Salary";
     protected function protectedProperty(){
@@ -397,3 +442,42 @@ Design a class with a protected property. Extend this class in a child class and
 
 
  ?>
+ <!-- 135 is in encapsulation -->
+
+ <!-- 143 -->
+ <!-- Abstract Class:
+Create an abstract class Shape with an abstract method draw().
+Extend Shape with classes Circle and Square implementing the draw() method.
+Override the draw() method in the Square class. -->
+<?php 
+abstract class ShapeClasses{
+    abstract function draw();
+}
+class CirclesClasses extends ShapeClasses{
+    public function draw(){
+        echo "ITs A CIRCLE CLASS";
+    }
+}  
+
+class SquareClasses extends CirclesClasses{
+    public function draw(){
+        echo "IT's A SQUARE CLASS";
+    }
+}  
+$newerObjectShape= new SquareClasses();
+$newerObjectShape->draw();
+?>
+<!-- 145 -->
+<!-- Create an abstract class Person with abstract methods introduce and attendClass.
+ Implement concrete classes Student and Teacher that extend the Person class. 
+ Provide specific implementations for introducing and attending classes for each type of person. -->
+ <?php 
+ abstract class Person{
+    abstract public function introduce();
+    abstract public function attend();
+    
+ }
+ ?>
+
+
+

@@ -899,6 +899,33 @@ fur color set to "Brown." Display the information using the appropriate methods 
 
 
 
+<!-- 145 -->
+<!-- Employee Hierarchy
+
+Design an employee hierarchy with a base class Employee and derived classes Manager
+ and Developer. The base class should have properties like name and salary, and 
+ each derived class should have additional properties like bonus for managers and
+  programming language for developers. Implement a method to calculate the total 
+  compensation for each employee. -->
+  <?php 
+  class Employee{
+    public $name;
+    public $salary;
+  }
+  class Employee extends Manager{
+    public function bonus(){
+
+    }
+
+  }
+  class Manager extends Developer{
+    public function programmingLanguages(){
+
+    }
+  }
+  ?>
+
+
 
 
 
