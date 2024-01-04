@@ -799,6 +799,154 @@ Implement a scenario with multiple inheritance using interfaces.
  with a method resize(). Create a class Shape that implements both interfaces.
   Write a class ResizableCircle that extends Shape and provides a specific 
   implementation for resizing. -->
+  <?php 
+ interface Movable{
+    public function move();
+ }
+ interface Resizable{
+    public function resize();
+ } 
+ class ShapeNew implements Movable, Resizable{
+    public function move(){
+        echo "its movable ";
+    } 
+    public function resize(){
+        echo "its resizable ";
+    }
+ }
+ class Resizables extends ShapeNew{
+    public function resize(){
+        echo "SPECIFIC IMPLEMENTATION FOR RESIZE";
+    }
+ }
+ $newRezizables = new Resizables();
+ $newRezizables->resize();
+  ?>
+
+  <!-- 153 -->
+  <!-- Bank Account Inheritance:
+Design a class BankAccount with properties accountNumber, 
+balance, and methods deposit and withdraw. Create two subclasses - 
+SavingsAccount and CheckingAccount. The SavingsAccount should have an
+ additional property interestRate, and the CheckingAccount should have 
+ an additional property overdraftLimit. Override the withdraw method in both 
+ subclasses to handle specific rules for each account type. -->
+ <?php 
+ class BankAccount{
+    private $accountNumber;
+    private $balance;
+    public function __construct($accountNumber,$balance){
+        $this->accountNumber = $accountNumber;
+        $this->balance = $balance;
+    }
+    public function withdraw(){
+      echo "Account";
+
+    }
+    
+ }
+class SavingsAccount extends BankAccount{
+    public function interestRate(){
+
+    }
+    public function withdraw(){
+        echo "Account";
+    }
+    
+
+}
+class CheckingAccount extends SavingsAccount{
+ 
+    public function overdraftLimit(){
+
+    }
+    public function withdraw(){
+        echo "Account withdrawal 2";
+    }
+
+}
+$newBank = new CheckingAccount("12dg34",56432);
+$newBank->withdraw();
+
+ ?>
+ <!-- 154 -->
+ <!-- Fibonacci Series with Inheritance:
+Create a class Fibonacci with a method generateSeries($n) that generates the 
+first $n elements of the Fibonacci series. Now, create two subclasses - 
+EvenFibonacci and OddFibonacci. Override the generateSeries method in each 
+subclass to generate only the even or odd elements of the Fibonacci series.
+ Demonstrate the use of these classes to display the first 10 even and odd Fibonacci numbers -->
+ <?php 
+
+ $a=0;
+ $b=1;
+ $sum = $a +$b;
+ for($i=0;$i<=10;$i++){
+    
+    echo $sum = $a + $b ." ";
+    $a = $b;
+    $b =$sum;
+}
+ ?>
+ <!--   Fibonacci Series with Inheritance:
+Create a class Fibonacci with a method generateSeries($n) that generates the 
+first $n elements of the Fibonacci series. Now, create two subclasses - 
+EvenFibonacci and OddFibonacci. Override the generateSeries method in each 
+subclass to generate only the even or odd elements of the Fibonacci series.
+ Demonstrate the use of these classes to display the first 10 even and odd Fibonacci numbers -->
+ <?php 
+ class Fibonacci{
+    private $n;
+    private $sum;
+    public function __construct($n){
+        $this->n=$n;
+        $this->sum=0;
+
+
+    }
+
+    public function generateSeries(){
+
+        $a=0;
+        $b=1;
+        $this->sum = $a +$b;
+        for($i=0;$i<=$this->n;$i++){
+           
+           echo $this->sum = $a + $b ." ";
+           $a = $b;
+           $b =$this->sum;
+        }
+    }
+ }
+//  class EvenFibonacci extends Fibonacci{
+//     public function generateSeries(){
+//         echo $this->sum;
+
+//     }
+
+
+//  }
+//  class OddFibonacci extends Fibonacci{
+//     public function generateSeries(){
+//         if ($this->sum %2!=0){
+//             echo "odd fibonacci " .$this->sum;
+//         }
+//         else{
+//             exit();
+//         }
+//     }
+
+//  }
+ $newFibonacci =new Fibonacci(20);
+ $newFibonacci->generateSeries();
+//  $OddFibonacci = new EvenFibonacci(4);
+//  $OddFibonacci->generateSeries();
+
+
+
+ 
+
+ ?>
   
 
 
