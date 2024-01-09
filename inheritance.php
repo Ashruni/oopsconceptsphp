@@ -823,7 +823,7 @@ Implement a scenario with multiple inheritance using interfaces.
  $newRezizables->resize();
   ?>
 
-  <!-- 153 -->
+   <!-- 153 -->
   <!-- Bank Account Inheritance:
 Design a class BankAccount with properties accountNumber, 
 balance, and methods deposit and withdraw. Create two subclasses - 
@@ -831,64 +831,143 @@ SavingsAccount and CheckingAccount. The SavingsAccount should have an
  additional property interestRate, and the CheckingAccount should have 
  an additional property overdraftLimit. Override the withdraw method in both 
  subclasses to handle specific rules for each account type. -->
- <?php 
- class BankAccount{
-    private $accountNumber;
-    private $balance;
-    public function __construct($accountNumber,$balance){
-        $this->accountNumber = $accountNumber;
-        $this->balance = $balance;
-    }
-    public function withdraw(){
-      echo "Account";
+<?php 
+class BankAccount{
+    public $accountNumber;
+    public $accountBalance;
+    public $accountDeposits;
+    public $accountWithdraws;
+    public function __construct(){
+        $this->accountBalance=0;
+        $this->accountDeposits=0;
+        $this->accountWithdraws=0;
 
     }
-    
- }
+    public function AccountDeposits($amount){
+        $this->accountDeposits+=$amount;
+        $this->accountBalance=$this->accountDeposits;
+
+        // echo $this->accountBalance ."\n";
+     }
+    public function AccountWithdraw($amount){
+        $this->accountBalance-=$amount;
+        // echo $this->accountBalance;
+
+    }
+}
 class SavingsAccount extends BankAccount{
-    public function interestRate(){
+    public $interestRate;
+    public $answer;
+    public function __construct(){
+        parent::__construct();
+        $this->interestRate = 0.2;
+        $this->answer;
+
 
     }
-    public function withdraw(){
-        echo "Account";
-    }
-    
+    public function AccountWithdraw($amount){
+        if ($amount<500){
+            echo "withdrawal is not possible  below 500  \n";
+        }
+        else{
+            echo $this->answer-=$amount ."\n";
+        }
+        
+        
 
-}
+    }
+    public  function InterestRate(){
+        echo "INTEREST RATE : " . $this->interestRate."%" ."\n";
+
+    } 
+    public function AccountDeposits($amount){
+        parent::AccountDeposits($amount);
+
+        $this->answer=($this->accountBalance * $this->interestRate) + $this->accountBalance ;
+        echo " \n Savings Account with 0.2 % interest : ".($this->accountBalance * $this->interestRate) + $this->accountBalance ."\n";
+        // $this->answer -=$this->wi  ;
+    }
+} 
 class CheckingAccount extends SavingsAccount{
- 
-    public function overdraftLimit(){
+    public function __construct(){
+        parent::__construct();
 
     }
-    public function withdraw(){
-        echo "Account withdrawal 2";
+    public function AccountDeposits($amount){
+        parent::AccountDeposits($amount);
+        // echo ;
+        // echo  $this->answer."EXISTING AMOUNT : \n";
     }
+    public function AccountWithdraw($amount){
+        $hii= parent::AccountWithdraw($amount);
+        
 
+
+    }
+    public function AccountOverdraftDeposit(){
+        echo "YOU CAN WITHDRAW ONLY ABOVE 500 ;";
+        
+
+    }
+//     public function AccountOverdraftDeposit($amount){
+
+// } 
 }
-$newBank = new CheckingAccount("12dg34",56432);
-$newBank->withdraw();
 
- ?>
- <!-- 154 -->
- <!-- Fibonacci Series with Inheritance:
-Create a class Fibonacci with a method generateSeries($n) that generates the 
-first $n elements of the Fibonacci series. Now, create two subclasses - 
-EvenFibonacci and OddFibonacci. Override the generateSeries method in each 
-subclass to generate only the even or odd elements of the Fibonacci series.
- Demonstrate the use of these classes to display the first 10 even and odd Fibonacci numbers -->
+echo "\n";
+$objBankAccount1 = new CheckingAccount();
+$objBankAccount1->AccountOverdraftDeposit();
+$objBankAccount1 ->AccountDeposits(1200);
+$objBankAccount1->AccountWithdraw(500);
+
+
+?>
+
  <?php 
 
  $a=0;
  $b=1;
  $sum = $a +$b;
+ $new = array();
+ $new1 = array();
  for($i=0;$i<=10;$i++){
     
-    echo $sum = $a + $b ." ";
+    $sum = $a + $b ." ";
+    if($sum%2==0){
+       
+
+        // echo "even :" . $sum ."\n";
+        array_push($new,$sum);
+        
+        //  here each time array is been created
+    }
+    else{
+        // echo "odd :".$sum."\n";
+        array_push($new1,$sum);
+        
+    }
+    
     $a = $b;
     $b =$sum;
+    
+
 }
- ?>
- <!--   Fibonacci Series with Inheritance:
+var_dump($new1);
+var_dump($new);
+echo "ODD FIBINOCCI ";
+foreach($new1 as $x){
+    echo $x ;
+}
+echo "\n";
+echo "EVEN FIBINOCCI ";
+foreach($new as $x){
+    echo $x ;
+}
+
+
+
+ ?> 
+ <!--   Fibonacci Series with Inheritance: 154
 Create a class Fibonacci with a method generateSeries($n) that generates the 
 first $n elements of the Fibonacci series. Now, create two subclasses - 
 EvenFibonacci and OddFibonacci. Override the generateSeries method in each 
@@ -898,56 +977,248 @@ subclass to generate only the even or odd elements of the Fibonacci series.
  class Fibonacci{
     private $n;
     private $sum;
+    public $newArray ;
+    public $arrayEven;
+    public $arrayOdd;
+
     public function __construct($n){
         $this->n=$n;
         $this->sum=0;
+        $this->newArray=array();
+        
 
 
     }
 
     public function generateSeries(){
-
         $a=0;
         $b=1;
         $this->sum = $a +$b;
+       
         for($i=0;$i<=$this->n;$i++){
-           
-           echo $this->sum = $a + $b ." ";
+           $this->sum = $a + $b ." ";
            $a = $b;
            $b =$this->sum;
+           array_push($this->newArray,$this->sum);
         }
+        // var_dump($this->newArray);
     }
- }
-//  class EvenFibonacci extends Fibonacci{
-//     public function generateSeries(){
-//         echo $this->sum;
+}
+class EvenFibonacci extends Fibonacci{
+   
+    public function generateSeries(){
+        $newArray[] = parent::generateSeries(); 
+        // $this->newArray =90;
+        echo "Even Fibinocci Number :";
+       foreach($this->newArray as $x){
+        
+        if($x%2==0){
+            echo $x;
+        }
+       }
+        
+    }
+}
+class OddFibinocci extends  Fibonacci{
+    public function generateSeries(){
+        echo "Odd Fibinocci Number :";
+        $newArray[]= parent::generateSeries();
+        foreach($this->newArray as $s){
+            if($s%2!=0){
+                echo $s;
+            }
+        }
 
-//     }
+    }
+}
+$fibonacci = new Fibonacci(40);
+$fibonacci->generateSeries();
+$EvenFibonacci = new EvenFibonacci(40);
+$EvenFibonacci->generateSeries();
+echo "\n";
+$OddFibonacci = new OddFibinocci(40);
+$OddFibonacci->generateSeries();
+?>
+<!-- 155 -->
+// Vehicle Hierarchy:
+// Create a class Vehicle with properties brand and model.
+//  Extend this class to create two subclasses - Car and Bicycle. 
+//  Add properties specific to each subclass (e.g., numDoors for Car, numWheels for Bicycle).
+//   Implement a method in each subclass to display information about the vehicle.
+<?php 
+class Vehicles1{
+    public function brand(){
+        echo "Vehicle class : Brand ";
+    }
+    public function model(){
+        echo "Vehicle class : Model ";
+
+    }
+    
+}
+class Car extends Vehicles1{
+    public function brand(){
+        echo "Cars does have a Brand name \n";
+    }
+    public function model(){
+        echo "Cars do have a Model name \n ";
+    } 
+    public function numDoors(){
+        echo "Usually cars do have 4 doors : \n ";
+    }
+} 
+class Bicycle extends Car{
+    public function brand(){
+        echo "Hercules is a famous brand for bicycles \n";
+    }
+    public function model(){
+        echo "New model bicycles  \n";
+
+    } 
+    public function numWheels(){
+        echo "bicycles are two wheeled \n";
+    } 
+}
+$newCars = new Car();
+$newCars->brand();
+$newCars->model();
+$newCars->numDoors();
+$newBicycles= new Bicycle();
+$newBicycles->brand();
+$newBicycles->model();
+$newBicycles->numWheels();
+
+?>
+
+<!-- 156 -->
+<!-- Library Inheritance:
+Design a class Book with properties title, author, and year.
+Extend this class to create two subclasses - FictionBook and NonFictionBook.
+Add properties specific to each subclass (e.g., genre for FictionBook, topic for NonFictionBook).
+Implement a method in each subclass to display information about the book. -->
+<?php 
+class Book{
+    public $title;
+    public $author;
+    public $year;
+    public function __construct(){
+        $this->title;
+        $this->author;
+        $this->year;
+    }
+
+}
+class FictionBook extends Book{
+    public $genre;
+    public function __construct(){
+        $this->genre ;
+
+    } 
+    public function genre(){
+        echo $this->genre="IMAGINATIVE ISLAND  \n" ;
+        echo $this->title = "LIFE OF PIE \n";
+        echo $this->author ="Yann Martel \n";
+        echo $this->year = "2001 \n";
+    }
+}
+class NonFictionBook extends FictionBook{
+    public $topic;
+    public function __construct(){
+        $this->topic ;
+    }    
+    public function topic(){
+        echo $this->topic="BASED ON SPIRITUAL CONTENTS \n";
+        echo $this->title="The Monk who sold his ferrari \n";
+        echo $this->author="Robin Sharma \n";
+        echo $this->year="1999 \n";
 
 
-//  }
-//  class OddFibonacci extends Fibonacci{
-//     public function generateSeries(){
-//         if ($this->sum %2!=0){
-//             echo "odd fibonacci " .$this->sum;
-//         }
-//         else{
-//             exit();
-//         }
-//     }
+    }
+}
+$newFictional = new FictionBook();
+$newFictional->genre();
+$newNonfictional = new NonFictionBook();
+$newNonfictional->topic();
+?>
+<!-- 157 -->
+<!-- Zoo Animals:
+Create a class Animal with properties name and sound.
+Extend this class to create three subclasses - Mammal, Bird, and Reptile.
+Add properties specific to each subclass (e.g., furColor for Mammal, wingSpan for Bird, scalePattern for Reptile).
+Implement a method in each subclass to make the animal sound. -->
+<?php 
+class Animalss{
+    
+    public $name;
+    public $sound;
+    public function __construct(){
+        $this->name;
+        $this->sound;
+    }
+}
+class Mammal extends Animalss{
+    public function mammals($name,$furColor){
+       echo $this->name=$name ."have " . $furColor ." fur color \n ";
+    }
+     
+}
+class Birds extends Mammal{
+    public function Wingspan($birdName,$cm){
+        echo $this->name = $birdName . " has almost " . $cm . " long wingspan \n ";
+    }
 
-//  }
- $newFibonacci =new Fibonacci(20);
- $newFibonacci->generateSeries();
-//  $OddFibonacci = new EvenFibonacci(4);
-//  $OddFibonacci->generateSeries();
+} 
+class Reptile extends Birds{
+    public function scalePattern($Reptilename,$pattern){
+        echo $this ->name = $Reptilename . " has ".$pattern . " scales \n";
+    } 
+
+}
+
+$newMammals = new Mammal();
+$newMammals->mammals("Monkeys ", "brown");
+$newMammals1 = new Birds();
+$newMammals1->Wingspan("Falcon", "121cm");
+$newMammals2 = new Reptile();
+
+$newMammals2->scalePattern("Crocodile ", " spiky");
+
+
+?>
+
+<!-- 158 -->
+<!-- Define a class Vehicle with a protected property fuel.
+ Create a subclass Car that initializes the fuel property. 
+ Add a method getFuel in the base class that returns the fuel level.
+Instantiate a Car object and demonstrate accessing the fuel level
+ using the getFuel method. -->
+<?php 
+class VehicleSS{
+    protected $fuel;
+    public function __construct(){
+        $this->fuel;
+
+    } 
+
+}
+class CarS extends VehicleSS{
+    public function __construct(){
+
+    }
+    public function getFuelLevel($fuel,$level){
+       echo  $this->fuel = $fuel ." is " . $level . " \n";
+    }
+
+}
+$newVehicle= new CarS();
+$newVehicle->getFuelLevel("petrol ","FULL TANK");
+?>
+        
+<!-- 159 check encapsulations -->
 
 
 
- 
 
- ?>
-  
 
 
 

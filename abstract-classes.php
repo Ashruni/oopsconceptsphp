@@ -478,6 +478,220 @@ $newerObjectShape->draw();
     
  }
  ?>
+ <!-- 165 -->
+ <!-- Design an abstract class Product with properties productName and price.
+  Include an abstract method calculateDiscount in the class. Create two concrete 
+  classes ElectronicProduct and ClothingProduct that extend the Product class. 
+  Each subclass should implement the calculateDiscount method differently based 
+  on the type of product (e.g., electronics may have a percentage discount, while 
+  clothing may have a fixed discount). -->
+
+  <?php 
+  abstract class Products{
+    public $productName;
+    public $price;
+    abstract public function calculateDiscount( $productName);
+  }
+class ElectronicProduct extends Products{
+    public function calculateDiscount($productName){
+        echo("check for discounts : washing machine,TV,vacuum cleaner \n");
+        if($productName=="washing machine"){
+        echo "the discounted  amount for : ". $productName  ." is ".$discountedRate = 50000 - (50000*0.3) ." from 50000"."\n";
+        }
+        elseif($productName=="TV"){
+            echo "the discounted  amount for : ". $productName  ." is ".$discountedRate = 45000 - (45000*0.4) ." from 45000"."\n";
+
+        }
+        elseif($productName=="vacuum cleaner"){
+
+            echo "the discounted  amount for : ". $productName  ." is ".$discountedRate = 100000 - (100000*0.2)." from 100000"."\n";
+        }        // echo $discountedRate;
+        else{
+            echo "ENTER THE CORRECT CHOICE ";
+        }
+        }
+
+    }
+    class ClothingDiscount extends ElectronicProduct{
+        public function calculateDiscount($productName){
+            echo " \n AADI SALES 30% OFF FOR EVERY PICK : Sarees,Shirts,Pants \n ";
+            if($productName =="Sarees"){
+                echo "30% off for EVERY Sarees \n";
+            }
+            elseif($productName == "Shirts"){
+                echo "30% off for EVERY Shirts \n";
+            }
+            elseif($productName == "Pants"){
+                echo "30% off for EVERY Pants \n";
+            }
+            else{
+                echo "30% off for EVERY PRODUCT";
+            }
+        }
+    }
+
+  $newDiscount = new ElectronicProduct();
+  $newDiscount->calculateDiscount("washing machine");
+  echo "\n";
+  $newDiscount1 = new ElectronicProduct();
+  $newDiscount1->calculateDiscount("vacuum cleaner");
+  echo "\n";
+  $newDiscount2 = new ElectronicProduct();
+  $newDiscount2->calculateDiscount("TV");
+  echo "\n";
+  $newDiscount3=new ClothingDiscount();
+  $newDiscount3->calculateDiscount("Shirts");
+  ?>
+<!-- 166 -->
+<!-- Question 4: Abstract Animal Class
+Create an abstract class Animal with properties name and sound. 
+Include a method makeSound to display the sound of the animal. 
+Create two concrete classes Dog and Cat that extend the Animal class.
+ Implement the makeSound method in each subclass to display the specific 
+ sound each animal makes. -->
+ <?php 
+ abstract class AnimalsClassNew{
+    private $name;
+    private $sound;
+    abstract public function makeSound();
+
+ }
+ class DogsClass extends AnimalsClassNew{
+    public function makeSound(){
+        echo "Dogs BARK \n";
+    }
+
+ }
+ class CatsClass extends Dogs{
+    public function makeSound(){
+        echo "cats MEOW \n";
+    }
+
+ }
+ $newObject = new DogsClass();
+ $newObject->makeSound();
+ $newObject1 = new CatsClass();
+ $newObject1->makeSound();
+
+ ?>
+ <!-- 167 -->
+ <!--  Abstract Vehicle Class
+Design an abstract class Vehicle with properties brand and model. 
+Include abstract methods start and stop in the class. 
+Create two concrete classes Car and Motorcycle that extend the Vehicle class.
+Implement the start and stop methods in each subclass to simulate starting and
+stopping the respective vehicles. -->
+  <?php 
+  abstract class VehicleClasses{
+    private $brand;
+    private $model;
+    abstract public function Start();
+    abstract public function Stop();
+  }
+  class Cars extends VehicleClasses{
+    public function Start(){
+        echo "Starting a Car";
+
+    }
+    public function Stop(){
+        
+        echo "Stopping a Car";
+    }
+
+  }
+  class Motorcycle extends Cars{
+    public function Start(){
+        echo "Starting a Motorcycle";
+        
+    }
+    public function Stop(){
+        echo "Stopping a Motorcycle";
+    }
+
+  }
+  $newObjectVehi = new Cars();
+  $newObjectVehi->Start();
+  $newObjectVehi1 = new Motorcycle();
+  $newObjectVehi1->Start();
+   
+
+
+
+  ?>
+<!-- 168 -->
+<!-- Create an abstract class BankAccount with properties
+ accountNumber and balance. Include abstract methods deposit 
+ and withdraw in the class. Implement two concrete classes
+  SavingsAccount and CheckingAccount that extend the BankAccount 
+  class. Each subclass should have additional properties such as 
+  interest rate for savings and overdraft limit for checking. 
+  Implement the deposit and withdraw methods in each subclass accordingly. -->
+
+<?php 
+abstract class BankAccount{
+    public $accountNumber;
+    public $balance;
+    public $variable;
+    public function __construct(){
+        $this->accountNumber;
+        $this->balance=0;
+        $this->variable;
+    }
+    abstract public function withdraw($amount);
+    abstract public function deposit($amount);
+}
+class SavingsAccount extends BankAccount{
+   
+    public function deposit($amount){
+        
+        echo "Deposit amount ". $this->balance+=$amount;
+        
+    }
+    public function withdraw($amount){
+        echo " balance after withdrawal ". $this->balance-=$amount;
+    }
+    public function interestRate(){
+        echo "Interest Rate for current balance " . $this->variable += $this->balance +($this->balance * 0.2). "\n"; 
+    } 
+
+}
+class CheckingAccount extends SavingsAccount{
+    // parent :: SavingsAccount();
+    public function withdraw($amount){
+        
+        echo " balance after withdrawal ". $this->balance-=$amount;
+
+    }
+    public function deposit($amount){
+        
+        echo "Deposit amount ". $this->balance+=$amount;
+        
+    }
+    public function overDraftLimit($amount){
+        if($this->balance-= $amount <=500){
+            echo "Not able to withdraw ";
+        }
+        elseif($this->balance-= $amount){
+            echo $this->balance ;
+        }
+    }
+
+}
+$newObject= new SavingsAccount();
+$newObject->deposit(500);
+echo "\n";
+$newObject->withdraw(400);
+echo "\n";
+$newObject->interestRate();
+$newObject= new CheckingAccount();
+echo "\n";
+$newObject->deposit(1500);
+echo "\n";
+$newObject->withdraw(200);
+echo "\n";
+$newObject->overDraftLimit(500);
+?>
+
 
 
 

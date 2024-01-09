@@ -385,6 +385,147 @@ $newObjectLoan->loanApplicationApproval()
 <!-- 152  -->
 <!-- go to inheritance -->
 
+<!-- 159 -->
+<!-- Access Control:
+Create a class with private properties and implement public 
+getter and setter methods to access and modify those properties.
+ Test the class to ensure that the encapsulation is working as expected. -->
+ <?php 
+ class encapsulationTester{
+    private $encapsuleFeature1;
+    private $encapsuleFeature2;
+    public function setter(){
+        $this->encapsuleFeature1 = 190;
+        $this->encapsuleFeature2 = 80;  
+    } 
+    public function getter(){
+        echo $this->encapsuleFeature1 = " one- ninety \n";
+        echo $this->encapsuleFeature2 = "Eighty ";
+    }
+ }
+$newEncapsules= new encapsulationTester();
+$newEncapsules->getter();
+
+
+ ?>
+ <!-- 160 -->
+ <!-- Inheritance along with Encapsulation:
+Define a parent class with private properties and methods. 
+Create a child class that inherits from the parent class. 
+Test whether the child class can access the private properties
+ and methods of the parent class. -->
+ <?php 
+ class MyParentClass{
+    private $parentFeature1;
+    private $parentFeature2;
+    // private function parentFunction(){
+    //     echo "This is a parent class  ";
+
+    // } 
+    //   Uncaught Error: Call to private method MyChildClass::parentFunction() from global scope
+     public function parentFunction(){
+            echo "This is a parent class  ";
+    
+        } 
+ }
+ class MyChildClass extends MyParentClass{
+    public function parentFunction(){
+        echo "hii";
+    }
+
+ }
+ $newParentClass = new MyChildClass();
+ $newParentClass -> parentFunction();
+ ?>
+ <!-- 161 -->
+ <!-- Static Encapsulation:
+Create a class with static properties and methods. Use encapsulation to
+ control access to these static elements. 
+Demonstrate the usage of these static elements within and outside the class. -->
+ <?php 
+class StaticEncapsulations{
+    private static $variable1;
+    private static $variable2;
+    public function newFunction(){
+        echo self::$variable1 += 14;
+
+    }
+}
+$newStaticEncapsules = new StaticEncapsulations();
+$newStaticEncapsules->newFunction();
+
+ ?>
+ <!-- 162 -->
+<!-- Constructor Initialization:
+Implement a class with private properties and use the 
+constructor to initialize them. Ensure that the properties
+ are properly encapsulated, and values can only be set 
+ through the constructor. -->
+ <?php 
+ class ConstructorInitialization{
+    private $encapsule1;
+    private $encapsule2;
+    public function __construct(){
+        $this->encapsule1;
+        $this->encapsule2;
+    }
+    public function getEncapsules(){
+       echo $this->encapsules="haiii";
+    }
+
+ }
+ $newConstruct = new ConstructorInitialization();
+ $newConstruct->getEncapsules();
+ ?>
+ <!-- 16.. -->
+ <!-- Validation through Encapsulation:
+Create a class with private properties that require certain validation rules
+ (e.g., positive integers, non-empty strings). Use encapsulation to enforce 
+ these validation rules and throw exceptions if the rules are violated. -->
+ <!-- 163 -->
+ <!-- Visibility Scope:
+Define a class with different visibility scopes (public, private, protected)
+ for properties and methods. Attempt to access them from outside the class 
+and within a subclass to verify that encapsulation is working as intended. -->
+<?php 
+class MyNewClass{
+    private $name;
+    protected $password;
+    public function newFunction(){
+        echo $this->name= "Hi ";
+        echo $this->password="hello";
+
+    }
+}
+$newObjectClass = new MyNewClass();
+$newObjectClass->newFunction();
+?>
+
+
+<!-- 164 -->
+<!-- Interface Encapsulation:
+Implement an interface with certain methods.
+ Create a class that implements the interface and ensures
+  that the methods are encapsulated according to the interface definition. -->
+  <?php 
+  interface ImplementInterface{
+    public function interfaceFeature();
+
+  }
+  class NewClassEs implements ImplementInterface{
+    private $feature1;
+    public function interfaceFeature(){
+        echo "hello hai ";
+    }
+  }
+  $newObjectInterface= new NewClassEs();
+  $newObjectInterface->interfaceFeature();
+
+  ?>
+
+
+
+
 
 
 
