@@ -321,6 +321,7 @@ price, and quantity as parameters.Implement a method to calculate and
 
 
 
+// $newObjectUser1->changePassword($changePassword);
  
 
 

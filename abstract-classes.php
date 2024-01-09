@@ -656,7 +656,7 @@ class SavingsAccount extends BankAccount{
 
 }
 class CheckingAccount extends SavingsAccount{
-    // parent :: SavingsAccount();
+    
     public function withdraw($amount){
         
         echo " balance after withdrawal ". $this->balance-=$amount;
@@ -667,11 +667,11 @@ class CheckingAccount extends SavingsAccount{
         echo "Deposit amount ". $this->balance+=$amount;
         
     }
-    public function overDraftLimit($amount){
-        if($this->balance-= $amount <=500){
-            echo "Not able to withdraw ";
+    public function overDraftLimit($AnotherAmount){
+        if($this->balance-$AnotherAmount <=500){
+            echo "Maintain minimum balance of Rupees 500  ";
         }
-        elseif($this->balance-= $amount){
+        elseif($this->balance-=$AnotherAmount){
             echo $this->balance ;
         }
     }
@@ -691,7 +691,173 @@ $newObject->withdraw(200);
 echo "\n";
 $newObject->overDraftLimit(500);
 ?>
+<!--169-->
+<!-- Question 8: Abstract Messaging System
+Create an abstract class Message with properties sender, recipient, and content. 
+Include an abstract method sendMessage in the class. Implement two concrete classes
+EmailMessage and TextMessage that extend the Message class. 
+Each subclass should implement the sendMessage method to display or 
+send the message using the appropriate medium. -->
+ <?php 
+ abstract class Messages{
+    public $sender;
+    public $recipient;
+    public function content(){
+        echo "HHii";
+    }
+    abstract public function sendMessage($messagePass);
+
+ }
+ class EmailMessage extends Messages{
+    public function sendMessage($messagePass){
+        echo $messagePass;
+
+    }
+ }
+ class TextMessage extends EmailMessage{
+    public function sendMessage($messagePass){
+        echo $messagePass ;
+    }
+ }
+ $newObjectMessage= new EmailMessage();
+ $newObjectMessage->sendMessage("This email messages are to be sent :");
+ echo "\n";
+ $newObjectMessage1= new TextMessage();
+ $newObjectMessage1 ->sendMessage("This text messages are to be sent :");
+ ?>
+<!-- 170 -->
+ <!-- Question 9: Abstract Authentication System
+Design an abstract class Authentication with properties username and password.
+ Include abstract methods authenticate and changePassword in the class. 
+ Create two concrete classes UsernamePasswordAuth and TwoFactorAuth that extend the 
+ Authentication class. Implement the authentication and password change 
+ methods in each subclass, with TwoFactorAuth requiring an additional step for authentication. -->
+ <?php 
+abstract class Authentication{
+    public $username;
+    public $password;
+    public $authPetName;
+    public function __construct(){
+        $this->username;
+        $this->password;
+        $this->authPetName="malu";
+    }
+    abstract public function authenticate($userName,$password);
+    abstract public function changePassword();
+}
+class UsernamePasswordAuth extends Authentication{
+    public function authenticate($userName,$password){
+        echo $userName . $password;
+    }
+    public function changePassword(){
+    }
+}
+class TwoFactorAuth extends UsernamePasswordAuth{
+     public function authenticate($userName,$password){
+       echo $userName . $password;
+     $this->username=$userName;
+     $this->password=$password;
+    }
+    
+
+    public function twoFactorAuth($petName,$changePassword){
+        echo "Confirm with your pet name given during registration : ";
+        if($this->authPetName == $petName){
+            
+            
+            $this->password=$changePassword;
+            
+            echo "Two factor Authentication successful \n";
+
+        }
+        else{
+            echo "Two factor Authentication failed \n";
+        }
+
+    }
+    public function changePassword(){
+        echo "Updated password is ". $this->password;
+        // echo $this->password=$changePassword;
+    }
+
+}
+
+$newObjectUser1= new TwoFactorAuth();
+$userName= readline("enter your username :");
+$password = readline("enter your password :"); 
+
+$newObjectUser1->authenticate($userName,$password);
 
 
+$petName = readline("enter the same pet Name entered during registration:"); 
+$changePassword = readline("Change your password :");
+$newObjectUser1->twoFactorAuth($petName,$changePassword);
+$newObjectUser1->changePassword();
+?>
+<!-- 171 -->
+<!-- Question 10: Abstract Online Shopping Cart
+Create an abstract class ShoppingCart with properties items and totalPrice.
+Include abstract methods addItem and calculateTotal in the class.
+Implement two concrete classes StandardCart and DiscountedCart that extend the
+ShoppingCart class. The DiscountedCart should apply a percentage discount on
+the total price. Implement the methods accordingly. -->
+<?php 
+abstract class ShoppingCart{
+    public $items;
+    public $totalPrice;
+    public $Price;
+    public function __construct(){
+        $this->items;
+        $this->totalPrice;
+        $this->Price;
+    }
+    abstract public function addItem($item,$rate,$quantity);
+    abstract public function calculateTotal();
+} 
+class StandardCart extends ShoppingCart{
+    public function addItem($item,$rate,$quantity){
+        echo "CART"."\n";
+        echo "Product Name :".$this->items= $item. "\n";
+        echo "Product Rate :" .$this->Price=$rate."\n";
+        echo "Total Price :" .$this->totalPrice= $quantity*$this->Price."\n";
+        
+    }
+    public function calculateTotal(){
+        echo $this->totalPrice;
+
+    }
+}
+class DiscountedCart extends StandardCart{
+    public function addItem($item,$rate,$quantity){
+        echo "CART"."\n";
+        echo "Product Name :".$this->items= $item. "\n";
+        echo "Product Rate :" .$this->Price=$rate."\n";
+        echo "Total Price :" .$this->totalPrice= $quantity*$this->Price."\n";
+        
+    }
+    public function calculateTotal(){
+        echo $this->totalPrice;
+
+    }
+    public function discountPercentage(){
+        $discountPercentage = $this->totalPrice - ($this->totalPrice * 0.2);
+        echo "Discounted amount :".$discountPercentage;
 
 
+    }
+
+    // percentage discount on total price
+}
+$newStandardCart = new DiscountedCart();
+$newStandardCart->addItem("milk",34,2);
+$newStandardCart->discountPercentage();
+echo "\n";
+$newStandardCart1 = new DiscountedCart();
+$newStandardCart1->addItem("Bread",45,2);
+$newStandardCart1->discountPercentage();
+echo "\n";
+$newStandardCart2 = new DiscountedCart();
+$newStandardCart2->addItem("Butter",54,1);
+$newStandardCart2->discountPercentage();
+
+?>
