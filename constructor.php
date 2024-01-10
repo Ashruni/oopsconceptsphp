@@ -322,7 +322,10 @@ price, and quantity as parameters.Implement a method to calculate and
 
 
 // $newObjectUser1->changePassword($changePassword);
- 
+ <?php 
+ $array=[2,4,5];
+ print_r(count($array));
+ ?>
 
 
 

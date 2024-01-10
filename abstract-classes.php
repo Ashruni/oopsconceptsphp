@@ -726,7 +726,7 @@ send the message using the appropriate medium. -->
  $newObjectMessage1 ->sendMessage("This text messages are to be sent :");
  ?>
 <!-- 170 -->
- <!-- Question 9: Abstract Authentication System
+ <!--  Abstract Authentication System
 Design an abstract class Authentication with properties username and password.
  Include abstract methods authenticate and changePassword in the class. 
  Create two concrete classes UsernamePasswordAuth and TwoFactorAuth that extend the 
@@ -795,7 +795,7 @@ $newObjectUser1->twoFactorAuth($petName,$changePassword);
 $newObjectUser1->changePassword();
 ?>
 <!-- 171 -->
-<!-- Question 10: Abstract Online Shopping Cart
+<!-- Abstract Online Shopping Cart
 Create an abstract class ShoppingCart with properties items and totalPrice.
 Include abstract methods addItem and calculateTotal in the class.
 Implement two concrete classes StandardCart and DiscountedCart that extend the
@@ -848,16 +848,79 @@ class DiscountedCart extends StandardCart{
 
     // percentage discount on total price
 }
-$newStandardCart = new DiscountedCart();
-$newStandardCart->addItem("milk",34,2);
-$newStandardCart->discountPercentage();
-echo "\n";
-$newStandardCart1 = new DiscountedCart();
-$newStandardCart1->addItem("Bread",45,2);
-$newStandardCart1->discountPercentage();
-echo "\n";
-$newStandardCart2 = new DiscountedCart();
-$newStandardCart2->addItem("Butter",54,1);
-$newStandardCart2->discountPercentage();
+// $newStandardCart = new DiscountedCart();
+// $newStandardCart->addItem("milk",34,2);
+// $newStandardCart->discountPercentage();
+// echo "\n";
+// $newStandardCart1 = new DiscountedCart();
+// $newStandardCart1->addItem("Bread",45,2);
+// $newStandardCart1->discountPercentage();
+// echo "\n";
+// $newStandardCart2 = new DiscountedCart();
+// $newStandardCart2->addItem("Butter",54,1);
+// $newStandardCart2->discountPercentage();
+?>
+<!-- 172 -->
+<!-- Abstract Sorting Algorithm
+Design an abstract class SortAlgorithm with an abstract method 
+sort that takes an array of integers as input. Create two concrete 
+classes BubbleSort and QuickSort that extend the SortAlgorithm class. 
+Implement the sort method in each subclass to perform the respective sorting algorithm. -->
+
+
+<?php 
+class SortAlgorithm{
+    public $newArray;
+    public function __construct(){
+        $this->newArray;
+
+    } 
+    public function getNumber(){
+        $this->newArray= [];
+    $array_with_range = range(0,3);
+    for ($i=0; $i<=6 ;$i++){
+        $new= readline("Enter a new number");
+        $this->newArray[]=$new;
+    }
+    print_r($this->newArray);
+
+    }
+    
+
+
+
+}
+class BubbleSort extends SortAlgorithm{
+    public function getNumber(){
+        parent::getNumber();
+        var_dump($this->newArray);
+        $length = count($this->newArray);
+        print_r($length);
+        for($i=0;$i<$length;$i++){
+            for($j=0;$j<=($length-1-$i);$j++){
+                if($this->newArray[$j]>$this->newArray[$j+1]){
+                    $temp=$this->newArray[$j];
+                    $this->newArray[$j]=$this->newArray[$j+1];
+                    $this->newArray[$j+1]=$temp;
+                }
+            }
+        }
+
+    echo "Sorted array :";
+    for($k=0;$k<$length;$k++){
+        echo $this->newArray[$k] ." ";
+    }
+       
+       
+    }
+    
+
+    }
+// class QuickSort extends QuickSort{
+
+// }
+$newSort = new BubbleSort();
+$newSort->getNumber();
+
 
 ?>
