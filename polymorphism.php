@@ -324,7 +324,7 @@ class CreditCardGateway implements PaymentGateway{
 }
 class PaypalGateway extends CreditCardGateway implements PaymentGateway{
     public $payPalAmount;
-    public $balanceAmount;
+    public $finalBalanceAmount;
     public $amountDeducedPayPal;
     public $payPalBalance;
 
@@ -332,7 +332,7 @@ class PaypalGateway extends CreditCardGateway implements PaymentGateway{
         parent::__construct();
         $this->amountDeducedPayPal ;
         $this->payPalBalance = 1600;
-        $this->balanceAmount;
+        $this->finalBalanceAmount;
        
     } 
     public function processPayment($amount){
@@ -344,8 +344,7 @@ class PaypalGateway extends CreditCardGateway implements PaymentGateway{
        
     }
     public function refund($transactionId){
-
-        echo "hii";
+       echo "Refund amount : ".  $this->finalBalanceAmount= $this->balanceAmount + $this->amountDeducedPayPal ;
     }
 
 }
@@ -357,9 +356,213 @@ $newPayment1= new PaypalGateway();
 $newPayment1->processPayment(500);
 $newPayment1->refund(123);
 
+?>
+<!-- 196 -->
+<!-- magic function call for method overloading -->
+<?php 
+class ShapeClass{
+    function __call($name,$arg){
+        if($name=="Area"){
+            switch(count($arg)){
+                case 1: return
+                3.14 * $arg[0]*$arg[0]; 
+                case 2 : return
+                $arg[0]*$arg[1];
+            }
+        }
+    }
+}
+$circle = new ShapeClass();
+echo $circle->Area(3);
+echo "\n";
+$rectangle = new ShapeClass();
+echo $rectangle->Area(3,4);
+?>
+<!-- 197 -->
+<!-- check whether the given number is prime or not  -->
+<?php
+$count=0;
+$Number = (int)readline('enter your number ');
+for($n=2;$n<=$Number/2;$n++)
+{
+    if($Number%$n==0){
+        $count += 1;
+    }
+        
+    else{
+        // echo "hoi";
+    }
+}
+
+if($count==0){
+    echo "given number is a prime ";
+}
+else{
+    echo "Not a prime";
+}
 
 ?>
+<!-- 198 -->
+<!-- how to print fibinocci series -->
+<?php
+$a=0;
+$b=1;
+$sum;
+echo $a ." ".$b ." ";
+for($i=0;$i<=14;$i++){
+    $sum = $a+$b;
+    $a = $b;
+    $b= $sum;
+    echo $sum ." ";
+}
+?>
+<!-- 199 -->
+<!-- Create a class hierarchy for a game with different character types
+ (e.g., warrior, mage, archer). Each character type should have a method attack() 
+ that outputs an attack message. Write a function that takes an array of different
+  character objects and makes each character type perform an attack. -->
+  <?php 
+  class Game{
+   public function attack(){
+    echo "dd";
+   }
+    
+  }
+  class Warrior extends Game{
+    public function attack(){
+        return "hello this is Warrior";
+    } 
+
+  }
+  class Mage extends Warrior{
+
+    public function attack(){
+        return "hello this is Mage ";
+    }
+  }
+  class Archer extends Mage{
+    public function attack(){
+        return "hello this is Archer ";
+    }
+
+  }
+ function performAttack($characters){
+    foreach($characters as $character){
+        echo $character->attack();
+        echo "\n";
+    }
+        
+    }
+$warrior = new Warrior();
+$archer = new Archer();
+$mage = new Mage();
+$characters=[$warrior,$archer,$mage];
+performAttack($characters);
+?>
+<!-- 200 -->
+<!-- Build a system for handling different authentication providers 
+(e.g., Google, Facebook, LDAP). Design an interface AuthProvider with 
+methods authenticate($credentials) and getUserInfo(). 
+Implement this interface in classes for each authentication provider. 
+Write a function that takes an array of AuthProvider objects and authenticates 
+a user using each provider. -->
+<?php 
+interface AuthProvider{
+    public function authenticate($username,$credentials);
+    public function getUserInfo();
+}
+class Google implements AuthProvider{
+    public $name;
+    private $password;
+    public function __construct(){
+        $this->name;
+        $this->password;
+    } 
+    public function authenticate($username,$credentials){
+        $this->name=$username;
+        $this->password = $credentials;
+
+    } 
+    public function getUserInfo(){
+        echo "\n";
+        echo $this->name."@google.com"." "."PASSWORD : ".$this->password ;
+        
+
+    }
+
+}
+class Facebook implements AuthProvider{
+    public $name;
+    private $password;
+    public function __construct(){
+        
+        $this->name;
+        $this->password;
+    }
+    public function authenticate($username,$credentials){
+        $this->name=$username;
+        $this->password = $credentials;
+
+    } 
+    public function getUserInfo(){
+        // echo "USERINFO : \n";
+        echo $this->name."@facebook.com" ." "."PASSWORD : ".$this->password;
+
+    }
+}
+function arrange($holder){
+    foreach($holder as $hold){
+        echo $hold->getUserInfo();
+    }
 
 
+}
+echo "USER INFO : \n";
+$facebook =new Facebook();
+$facebook->authenticate("Kesav","Kesav123");
 
+$Google = new Google();
+$Google ->authenticate("Rakhi","Rakhi321");
+$holder = [$facebook,$Google];
+echo arrange($holder);
+?>
+<!-- 201 -->
+<!-- Create an event handling system for a web application. 
+Design an interface EventHandler with methods like handleEvent($eventData). 
+Implement this interface in classes for different types of events 
+(e.g., user events, system events). Write a function that takes an array 
+of EventHandler objects and triggers an event for each handler. -->
+<?php 
+interface EventHandler{
+   public function handleEvent($eventData);
+
+}
+class UserEvents implements EventHandler{
+    public function handleEvent($eventData){
+       echo"This has taken place in ".$eventData ;
+
+    } 
+}
+class SystemEvents implements EventHandler{
+    public function handleEvent($eventData){
+        echo "This has taken place in ".$eventData ;
+
+    }
+}
+function arrangeEvents($sysUserArrays){
+    foreach($sysUserArrays as $sysUserArrayElement){
+        $sysUserArrayElement->handleEvent("\n");
+        
+
+    }
+
+}
+$UserEvents =new UserEvents();
+$UserEvents->handleEvent("User");
+$SysEvents = new SystemEvents();
+$SysEvents ->handleEvent("System ");
+$sysUserArrays = [$UserEvents,$SysEvents];
+echo arrangeEvents($sysUserArrays);
+
+?>
 

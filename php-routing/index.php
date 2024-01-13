@@ -1,10 +1,11 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
+// $request = php-routing/views/contact.php;
 $viewDir = '/views/';
-
-switch ($request) {
-    case '':
+switch ($request){
+    // http://localhost/oopsphp/php-routing/views/
+    case ' ':
     case '/':
         require __DIR__ . $viewDir . 'home.php';
         break;
