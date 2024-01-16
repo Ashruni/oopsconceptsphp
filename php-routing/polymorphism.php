@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+</body>
+</html>
+
+
 <!-- 178 -->
 <!-- Create an interface Animal with a method makeSound().
 Implement this interface in three classes: Dog, Cat, and Bird.
@@ -539,30 +552,34 @@ interface EventHandler{
 }
 class UserEvents implements EventHandler{
     public function handleEvent($eventData){
-       echo"This has taken place in ".$eventData ;
+       return "This has taken place in ".$eventData ;
 
     } 
 }
 class SystemEvents implements EventHandler{
     public function handleEvent($eventData){
-        echo "This has taken place in ".$eventData ;
+        return "This has taken place in ".$eventData ;
 
     }
 }
 function arrangeEvents($sysUserArrays){
     foreach($sysUserArrays as $sysUserArrayElement){
-        $sysUserArrayElement->handleEvent("\n");
+       echo $sysUserArrayElement ,"\n";
+
+        
+
         
 
     }
 
 }
 $UserEvents =new UserEvents();
-$UserEvents->handleEvent("User");
+
 $SysEvents = new SystemEvents();
-$SysEvents ->handleEvent("System ");
-$sysUserArrays = [$UserEvents,$SysEvents];
+
+$sysUserArrays = [$UserEvents->handleEvent("User"),$SysEvents ->handleEvent("System ")];
 echo arrangeEvents($sysUserArrays);
 
 ?>
+<!-- 202 -->
 

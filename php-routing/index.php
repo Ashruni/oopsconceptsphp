@@ -1,8 +1,10 @@
 <?php
 
+
 $request = $_SERVER['REQUEST_URI'];
 // $request = php-routing/views/contact.php;
 $viewDir = '/views/';
+
 switch ($request){
     // http://localhost/oopsphp/php-routing/views/
     case ' ':
@@ -16,6 +18,9 @@ switch ($request){
 
     case '/contact':
         require __DIR__ . $viewDir . 'contact.php';
+        break;
+    case '/polymorphism':
+        require __DIR__ . $viewDir.'polymorphism.php';
         break;
 
     default:
