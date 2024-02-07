@@ -541,7 +541,7 @@ $nw->timeCalculator($nw,$nw1);
 // $nw->timeCalculator();
 ?>
 <!-- 269 -->
-<!-- PHP program to convert seconds into hours, minutes, and seconds -->
+<!-- PHP program to convert seconds into hours, minutes -->
 <?php
 class TimeConversion{
     public $var1;
@@ -553,16 +553,135 @@ class TimeConversion{
     }
     public function HourConverter($k){
         $this->var2 ;
-        echo $this->var2 = (36000/60*60*60) ."hours";
+        echo $this->var2 = $k/(60*60) . " hours";
 
     }
 }
 $new= new TimeConversion();
-$new->minuteConverter(400);
+echo "enter your seconds here \n";
+$new->minuteConverter(4000);
 echo "\n";
 $new->HourConverter(36000); //
 ?>
 
+<!-- 270 -->
+<!--  Create an interface named FibonacciGenerator 
+with a method for generating the series. Implement
+ this interface in the Fibonacci 
+series class while maintaining encapsulation.-->
 
- 
+<?php 
+interface FibonacciGenerator{
+    public function generate();
+}
+class EncapsulatesFib implements FibonacciGenerator{
+    private $var1;
+    private $var2;
+    private $var3;
+    public function generate(){
+        $this->var1 =0;
+        $this->var2 =1;
+        $this->var3 =0;
+        ECHO "0 1 ";
+        for($i=0;$i<=10;$i++){
+            $this->var3= $this->var1 + $this->var2;
+            $this->var1=$this->var2;
+            $this->var2=$this->var3;
+            echo $this->var3." ";
+
+        }
+    }
+}
+$newEnca = new EncapsulatesFib();
+$newEnca->generate();
+?>
+<!-- 271 -->
+<!-- Declare a method as final in the Fibonacci series class. 
+Attempt to override this method in a subclass and
+ observe the behavior. Ensure encapsulation is not compromised. -->
+ <?php 
+ final class FibonacciFinal{
+    public function finalMethod(){
+        echo "hiii" ;
+    }
+ }
+//  class ChildOverride extends FibonacciFinal{
+//     public function finalMethod(){
+//         echo "hello";
+//     }
+//  }
+//  $nwO = new ChildOverride();
+//  $nwO->finalMethod();
+// Class ChildOverride cannot extend final class FibonacciFinal
+
+ ?>
+ <!-- 272 -->
+ <!-- Extend the Fibonacci series class to create a
+  new class representing a modified Fibonacci series. 
+ Ensure that encapsulation is maintained in the child class. -->
+ <?php 
+ class ParentClass{
+    public function fibinocci(){
+        echo " (0 1) =>";
+    }
+ }
+ class ChildClass extends ParentClass{
+    private $var1;
+    private $var2;
+    private $var3;
+    public function setFibinocci(){
+        $this->var1 =0;
+        $this->var2 =1;
+        $this->var3 = 0;
+        for($i=0;$i<10;$i++){ 
+            $this->var3 = $this->var2 + $this->var1;
+            $this->var1 = $this->var2;
+            $this->var2 = $this->var3; 
+            echo  "  ".$this->var3;
+        }
+
+    }
+ }
+ $nw1= new ParentClass();
+ $nw1->fibinocci();
+ $nw = new ChildClass();
+ $nw->setFibinocci();
+ ?>
+ <!-- 273 -->
+ <!-- Write a PHP function to check if a given number 
+ is an Armstrong number or not in class based pgm   -->
+ <?php 
+ class ArmstrongNumber{
+    public $var1;
+    public $var2;
+    public $var3;
+    public $var4;
+
+    public function ArmstrongChecker($number){
+$this->var1 = $number;
+for($i=0;$i<=strlen($this->var1);$i++){
+     $var4= $this->var1%10;
+   
+   $this->var3+=($var4)**3 ;
+    
+    intval($this->var1/10)." ";
+   
+   $this->var1=intval($this->var1/10)." ";
+}
+echo " ".  $number;
+if($this->var3 == $number){
+    echo " YES ITS AN ARMSTRONG NUMBER ";
+}
+else{
+    echo " IS NOT AN ARMSTRONG NUMBER ";
+}
+ }
+ }
+ $newe= new ArmstrongNumber();
+ $newe->ArmstrongChecker(153);
+ ?>
+
+<!-- 274 -->
+<!--  -->
+
  
