@@ -907,25 +907,235 @@ Design an employee hierarchy with a base class Employee and derived classes Mana
  each derived class should have additional properties like bonus for managers and
   programming language for developers. Implement a method to calculate the total 
   compensation for each employee. -->
-  <?php 
-  class Employee{
-    public $name;
-    public $salary;
-  }
-  class Employee extends Manager{
-    public function bonus(){
+
+
+
+<!-- 244 -->
+<!-- Create a base class Fibonacci with a method to generate
+ the Fibonacci series up to a given number.
+Then, create a derived class that inherits from Fibonacci. -->
+<?php
+class FibonacciSeries{
+    public $number ;
+    public $varA;
+    public $varB;
+    public $sum;  
+    public function fibonacciSeries($number,$varA,$varB,$sum){    
+       }
+}
+class ChildFibonacciSeries extends FibonacciSeries
+{
+    public function fibonacciSeries($number,$varA,$varB,$sum){
+        echo "FIBONACCI SERIES 0 => ";
+        for($i=0;$i<$number;$i++){
+         $sum = $varA + $varB;
+         $varA =$varB;
+         $varB = $sum ;
+         echo "=>".$sum . " ";
+        }
+        echo "=>".$sum . " ";
+    }
+}
+$objFib= new FibonacciSeries();
+// $objFib->fibonacciSeries(10,0,1,0);
+$objchildfib = new ChildFibonacciSeries();
+echo $objchildfib ->fibonacciSeries(10,0,1,0);
+?>
+<!-- 245
+Extend the base class to include a method for calculating the
+nth element of the Fibonacci series.Override this method in 
+the derived class to add a different calculation approach. -->
+<?php
+class FibonacciSeriesNth{
+    public $var1;
+    public $var2;
+    public $varSum;
+    public $num;
+    public function __construct($num,$var1,$var2,$varSum){
+        $this->varSum;
+        $this->$num ;
+        $this->var1 ;
+        $this->var2 ;
+    }
+    public function fibonacciCalculator(){
+        $a=array(0,1);
+        for($i=0;$i<= $this->$num;$i++){
+            $this->varSum =   $this->var1 + $this->var2;
+            $this->var1 =$this->var2;
+            $this->var2=$this->$this->var2;
+           $o= array_push($a,$this->varSum);
+        echo $this->varSum;
+    }
+    
+    var_dump($a);
+}
+}
+class childFibonacciCalculator extends FibonacciSeriesNth{
+    public $var1;
+    public $var2;
+    public $varSum;
+    public $num;
+    public $n;
+    
+    public function __construct($num,$var1,$var2,$varSum,$n){
+        $this->varSum=$varSum;
+        $this->num=$num;
+        $this->var1=$var1;
+        $this->var2=$var2;
+        $this->n = $n;
+    }
+    public function fibonacciCalculator(){
+        $a=array(0,1);
+        for($i=0;$i<= $this->num;$i++){
+            $this->varSum =   $this->var1 + $this->var2;
+            $this->var1 =$this->var2;
+            $this->var2=$this->varSum;
+            echo $this->varSum;
+            array_push($a,$this->varSum);
+       
+    }
+    
+    var_dump($a);
+    foreach($a as $o )
+{
+    echo "";
+        // $o;
+    
+    
+}
+echo $this->n ."th element is " . $a[$this->n-1];
+}
+
+}
+// $n=readline("enter a number ");
+// $newOF= new childFibonacciCalculator(10,0,1,0,$n);
+$newOF= new childFibonacciCalculator(10,0,1,0,42);
+$newOF->fibonacciCalculator();
+
+?>
+<!-- 246 // Inherit from the base class and add a new method to check 
+// if a given number is part of the Fibonacci series.
+//  Ensure the derived class retains the original functionality. -->
+<?php
+class fibonacciFromGivenNumber{
+    public $variableFirst;
+    public $variableSecond;
+    public $sum;
+    public $num;
+    // public $nNum;
+    // public 
+
+    public function __construct($varF,$varS,$sum,$num){
+        $this->variableFirst = $varF;
+        $this->variableSecond = $varS;
+        $this->sum=$sum;
+        $this->num=$num;
+       
 
     }
-
-  }
-  class Manager extends Developer{
-    public function programmingLanguages(){
+    public function fibCalculations()
+   
+    {
 
     }
-  }
-  ?>
+}
+class ChildFibinocciCalcu extends fibonacciFromGivenNumber{
+    public $variableFirst;
+    public $variableSecond;
+    public $sum;
+    public $num;
+    public $nNum;
+    public $a;
+    public function __construct($varF,$varS,$sum,$num,$nNum){
+        $this->variableFirst = $varF;
+        $this->variableSecond = $varS;
+        $this->sum=$sum;
+        $this->num=$num;
+        $this->nNum=$nNum;
+        $this->a;
+    }
+    public function fibCalculations()
+   
+    {
+        $this->a=array(0,1);
+        for($i=0;$i<=$this->num;$i++){
+            $this->sum=$this->variableFirst + $this->variableSecond;
+            $this->variableFirst=$this->variableSecond;
+            $this->variableSecond=$this->sum;
+            echo " ".$this->sum;
+            array_push($this->a,$this->sum);
+
+        }
+       
+    }
+    public function fibCal(){
+        for($i=0;$i<=sizeof($this->a)-1;$i++){
+           if($this->a[$i]==$this->nNum){
+            echo "\n the number {$this->nNum} is a Fibinocci series";
 
 
+           }
+        } 
+    }
+}
+// $wantToKnow = readline("enter the digit :");
+// $newObjectCreate = new ChildFibinocciCalcu (0,1,0,20,$wantToKnow );
+$newObjectCreate = new ChildFibinocciCalcu (0,1,0,20,34);
+$newObjectCreate->fibCalculations();
+$newObjectCreate->fibCal();
+?>
+<!-- 247 -->
+<!-- Create a base class for Fibonacci series and extend it to a new class that 
+generates only even numbers in the series using inheritance -->
+<?php
+class EvenFibinocciSeries{
+    public $firstVariable;
+    public $secondVariable;
+    public $sumVariable;
+    public $evenVariable;
+    public $a;
+    public function __construct(){
+        $this->firstVariable=0;
+        $this->secondVariable=1;
+        $this->sumVariable=0;
+        $this->evenVariable;
+        $this->a;
+    }
+
+    public function evenFib(){
+        $this->a=array(0,1);
+        for($i=0;$i<=10;$i++){
+            $this->sumVariable = $this->firstVariable + $this->secondVariable ;
+            $this->firstVariable = $this->secondVariable;
+            $this->secondVariable=$this->sumVariable;
+            array_push( $this->a,$this->sumVariable);
+        }
+    } 
+}
+class ChildEvenFib extends EvenFibinocciSeries{
+    public function __construct(){
+        parent::__construct();
+    }
+    public function evenFib(){
+        parent::evenFib();
+        foreach( $this->a as $f){
+            if($f%2==0){
+                echo " ". $f;
+            }
+        
+        }
+        
+    }
+}
+$newwOB = new EvenFibinocciSeries();
+$newOb= new ChildEvenFib();
+$newOb->evenFib();
+?>
+<!-- 248 Implement a memoization trait, then use inheritance to create a Fibonacci 
+class that incorporates the memoization functionality -->
+<?php 
+
+?>
 
 
 
